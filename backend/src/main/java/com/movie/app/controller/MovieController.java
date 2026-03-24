@@ -23,6 +23,13 @@ public class MovieController {
         return movieRepository.findAll();
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Movie> getMovieById(@PathVariable Long id) {
+        Optional<Movie> movie = movieRepository.findById(id);
+        return movie.map(ResponseEntity::ok)
+                    .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Movie> saveMovie(@RequestBody Movie movie) {
