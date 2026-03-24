@@ -5,6 +5,7 @@ import com.movie.app.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,6 +24,7 @@ public class MovieController {
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Movie> saveMovie(@RequestBody Movie movie) {
         Optional<Movie> existingMovie = movieRepository.findByImdbId(movie.getImdbId());
         if (existingMovie.isPresent()) {
@@ -33,6 +35,7 @@ public class MovieController {
     }
     
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Void> deleteMovie(@PathVariable Long id) {
         if (!movieRepository.existsById(id)) {
             return ResponseEntity.notFound().build();
