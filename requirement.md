@@ -234,3 +234,4 @@ The system is a hybrid movie platform combining:
 - Admin control and moderation  
 
 ---
+api link : https://www.omdbapi.com/?t=dhurandhar&apikey=a4f04e4
