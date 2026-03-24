@@ -227,7 +227,6 @@ The IMDb Clone is a full-stack web application that allows users to explore movi
 
 ## 🎯 Final Summary
 
-api link : https://www.omdbapi.com/?t=dhurandhar&apikey=a4f04e4
 The system is a hybrid movie platform combining:
 - External API (TMDB)  
 - Internal database  
@@ -235,3 +234,4 @@ The system is a hybrid movie platform combining:
 - Admin control and moderation  
 
 ---
+api link : https://www.omdbapi.com/?t=dhurandhar&apikey=a4f04e4
